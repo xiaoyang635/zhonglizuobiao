@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p>x:<span class="x"></span></p>
+		<p>y:<span class="y"></span></p>
+		<p>z:<span class="z"></span></p>
+	</div>
+	<script>
+		var oX = document.querySelector('.x');
+		var oY = document.querySelector('.y');
+		var oZ = document.querySelector('.z');
+		if(window.DeviceMotionEvent){
+			//your code
+			window.addEventListener('devicemotion',function(ev){
+				//x y z
+				var acc = ev.accelerationIncludingGravity;
+				oX.innerHTML = acc.x;
+				oY.innerHTML = acc.y;
+				oZ.innerHTML = acc.z;
+			},false);
+		}else{
+			alert('sorry,Your device does not support gravity induction');
+		}
+	</script>
+</body>
+</html>
